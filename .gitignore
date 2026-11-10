@@ -1,1 +1,16 @@
+# 論文 PDF 與簡報
 /paper/
+
+# 資料集
+/project0_reproduction/public-data/
+
+# 實驗中間檔、結果、圖表與執行紀錄
+/project0_reproduction/output-data/
+/project0_reproduction/results/
+/project0_reproduction/logs/
+
+# R 自動產生的圖檔
+Rplots.pdf
+
+# 原作者的本機參考副本
+/reference/
