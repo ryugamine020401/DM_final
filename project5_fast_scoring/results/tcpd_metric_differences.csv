@@ -1,0 +1,8 @@
+"evaluation","column","n_rows_baseline","n_rows_improved","n_rows_matched","n_rows_identical","max_abs_diff"
+"summarizing_results_F1","F1",144144,144144,144144,144144,0
+"summarizing_results_F1","nb_gt",144144,144144,144144,144144,0
+"summarizing_results_F1","nb_pred",144144,144144,144144,144144,0
+"summarizing_results_TCPD","F1",24024,24024,24024,24024,0
+"summarizing_results_TCPD","covering",24024,24024,24024,24024,0
+"summarizing_results_TCPD","nb_gt",24024,24024,24024,24024,0
+"summarizing_results_TCPD","nb_pred",24024,24024,24024,24024,0

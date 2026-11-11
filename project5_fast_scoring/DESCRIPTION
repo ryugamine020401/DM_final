@@ -1,0 +1,41 @@
+Package: scoth.fast
+Type: Package
+Title: Changepoint Detection via Subset Chains, with a Fast Exact O(T log T) Scoring Algorithm
+Version: 1.0.5
+Author: Alexis Huet (original scoth package); fast scoring improvement (improvement 5) for a data-mining course project
+Maintainer: Alexis Huet <alexis.huet@huawei.com>
+Description: Implementation of the chain of subsets change point detection methodology presented in the PAKDD'25 paper.
+    [IMPROVEMENT-5] This copy adds an exact fast implementation of the scoring step (Algorithm 1):
+    the cuts are kept in a doubly-linked list, the scores in a binary min-heap (ties broken by the
+    smallest index, like which.min), and segment costs come from bit-identical replicas of the original
+    cost functions (short segments) or O(1) compensated prefix sums (long segments). On the 42 TCPD
+    datasets the scores agree with the original ones up to the last bits (bit-identical with
+    options(scoth.fast_exact_max_len = Inf)) and all the selections are identical, but the time grows
+    as O(T log T) instead of O(T^2). Select it with options(scoth.scoring_algorithm = "fast"); the default ("original") runs the
+    reference implementation. The selection step (Algorithm 2) can also use the exact cost replicas with
+    options(scoth.fast_selection = TRUE).
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Imports: 
+    dplyr (>= 1.0.10),
+    ggplot2 (>= 3.4.2),
+    grid (>= 4.0.2),
+    gridExtra (>= 2.3),
+    here (>= 1.0.1),
+    jsonlite (>= 1.8.0),
+    logger (>= 0.2.2),
+    testthat (>= 3.0.4),
+    tibble (>= 3.1.7),
+    tidyr (>= 1.2.0)
+Suggests:
+    breakfast (>= 2.2),
+    changepoint (>= 2.2.2),
+    changepoint.np (>= 0.0.2),
+    ecp (>= 3.1.1),
+    genlasso (>= 1.6.1),
+    ocp (>= 0.1.1),
+    reticulate (>= 1.37.0),
+    robseg (>= 2019.7.2),
+    scmamp (>= 0.2.55)

@@ -1,0 +1,8 @@
+"protocol","n_datasets_different","wilcoxon_p_value","wilcoxon_note"
+"oracle_F1",0,NA,"all 42 differences are exactly 0: test not applicable (identical results)"
+"best_single_F1",0,NA,"all 42 differences are exactly 0: test not applicable (identical results)"
+"fully_auto_F1",0,NA,"all 42 differences are exactly 0: test not applicable (identical results)"
+"fully_auto_loo_F1",0,NA,"all 42 differences are exactly 0: test not applicable (identical results)"
+"oracle_F1_biased",0,NA,"all 42 differences are exactly 0: test not applicable (identical results)"
+"oracle_cover",0,NA,"all 42 differences are exactly 0: test not applicable (identical results)"
+"scoring time per run (84 runs)",84,1.77635683940025e-15,"paired, two-sided, baseline vs improved seconds"

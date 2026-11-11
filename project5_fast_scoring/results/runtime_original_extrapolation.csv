@@ -1,0 +1,3 @@
+"cost","T","a_seconds_per_point","b_seconds_per_point2","two_term_prediction_seconds","loglog_prediction_seconds","loglog_is_extrapolated"
+"cusum_L2",1e+05,-0.000146577490180928,7.96526302234241e-08,781.868553216148,759.794966708892,TRUE
+"reg_cusum_L2",1e+05,0.000891728639495203,2.05628662030777e-07,2145.45948425729,837.0190853568,TRUE

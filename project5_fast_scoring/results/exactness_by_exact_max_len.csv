@@ -1,0 +1,6 @@
+"exact_max_len","n_runs","n_runs_bit_identical","n_runs_max_diff_le_1e12","n_runs_all_selections_identical","max_abs_score_diff","n_selection_rows","n_identical_selection_rows","pct_identical_selection_rows","total_scoring_seconds"
+0,84,0,38,39,0.896509195800124,24024,16921,70.43,1.47
+2,84,0,74,73,0.0437619087779736,24024,23037,95.89,1.8
+8,84,3,83,84,3.9164832099861e-06,24024,24024,100,1.48
+64,84,29,84,84,1.22124532708767e-15,24024,24024,100,1.58
+Inf,84,84,84,84,0,24024,24024,100,1.55

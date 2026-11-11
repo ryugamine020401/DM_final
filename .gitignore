@@ -1,16 +1,24 @@
 # 論文 PDF 與簡報
 /paper/
 
-# 資料集
-/project0_reproduction/public-data/
-
-# 實驗中間檔、結果、圖表與執行紀錄
-/project0_reproduction/output-data/
-/project0_reproduction/results/
-/project0_reproduction/logs/
-
-# R 自動產生的圖檔
-Rplots.pdf
-
 # 原作者的本機參考副本
 /reference/
+
+# 資料集（TCPD 部分序列有轉載限制，請從原作者的 repo 取得）
+**/public-data/
+
+# 實驗中間檔（重新執行 main.R、main_fast.R 就會產生）
+**/output-data/
+
+# 執行紀錄與摘要檔（內容含本機的資料夾路徑）
+**/logs/
+**/results/comparison_summary.txt
+
+# R、Windows、VS Code 自動產生的檔案（不要忽略 *.Rproj）
+Rplots.pdf
+.Rhistory
+.RData
+.Rproj.user/
+.vscode/
+Thumbs.db
+desktop.ini

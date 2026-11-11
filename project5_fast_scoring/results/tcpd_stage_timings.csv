@@ -1,0 +1,9 @@
+"stage","baseline_seconds","improved_seconds","improved_seconds_stage_timings","baseline_minutes","improved_minutes","speedup_from_logs","speedup_with_stage_timings","changed_by_improvement5"
+"scoring",40,1,1,0.67,0.02,NA,40,TRUE
+"selection",199,25,25.38,3.32,0.42,8,7.8,TRUE
+"evaluation_F1",27,28,27.29,0.45,0.47,1,1,FALSE
+"summarization_F1",3,2,2.7,0.05,0.03,NA,NA,FALSE
+"evaluation_TCPD",780,970,969.63,13,16.17,0.8,0.8,FALSE
+"summarization_TCPD",0,1,0.95,0,0.02,NA,NA,FALSE
+"tables_and_figure",4,5,5.01,0.07,0.08,NA,NA,FALSE
+"total",1053,1032,1031.96,17.55,17.2,1,1,FALSE

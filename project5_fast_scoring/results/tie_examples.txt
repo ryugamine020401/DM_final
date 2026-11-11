@@ -1,0 +1,30 @@
+Floating-point ties in the original scoring algorithm (Algorithm 1)
+======================================================================
+
+Example 1 - linear cost, x = round(rnorm(12), 2) with set.seed(1):
+  x = -0.63, 0.18, -0.84, 1.6, 0.33, -0.82, 0.49, 0.74, 0.58, -0.31, 1.51, 0.39
+  At the first iteration every gain is the cost of a line through 2 points,
+  i.e. exactly 0 in exact arithmetic. The original code (lm) returns rounding noise:
+  first normalized gains = 2.2e-32, 6.4e-33, 2.4e-30, 4.0e-31, 1.3e-30, 9.7e-30, 1.6e-32, 8.9e-32, 1.9e-30, 6.5e-31, 2.5e-30
+  order of removal (original, decided by the noise):      3, 8, 5, 11, 6, 9, 2, 12, 10, 7, 4
+  order of removal (exact zeros, ties -> smallest index): 2, 4, 6, 8, 10, 12, 9, 7, 11, 3, 5
+  max |score difference| between the two runs = 0.637
+  fast algorithm (default exact_max_len = 64) identical to the original: TRUE
+  fast algorithm with pure prefix sums (exact_max_len = 0), max |diff| = 0.637
+
+Example 2 - quadratic cost, integer series with exact ties: x = rep(c(0,0,1,1,3), 6):
+  first normalized gains = 0.0000, 0.0139, 0.0000, 0.0556, 0.1250, 0.0000, 0.0139, 0.0000, 0.0556, 0.1250, 0.0000, 0.0139, 0.0000, 0.0556, 0.1250, 0.0000, 0.0139, 0.0000, 0.0556, 0.1250, 0.0000, 0.0139, 0.0000, 0.0556, 0.1250, 0.0000, 0.0139, 0.0000, 0.0556
+  Many gains are EXACTLY equal; which.min() removes the smallest index first.
+  order of removal (original): 2, 4, 7, 9, 12, 14, 17, 19, 22, 24, 27, 29, 3, 8, 13 ...
+  fast algorithm (heap ordered by (score, index)) identical to the original: TRUE
+
+Example 3 - constant series rep(2.5, 10):
+  quadratic cost: V(empty) = 0 (exactly 0, all scores are 0)
+  linear cost:    V(empty) = 2.761e-30 (lm rounding noise, not 0!)
+  original linear-cost scores = noise / noise = 0.000, 1.714, 0.000, 0.143, 0.000, 2.786, 0.000, 0.357, 0.000
+  fast algorithm identical to the original: TRUE
+
+Conclusion: the original results depend on rounding noise whenever gains are tied
+(mathematically equal or equal to 0). To reproduce them EXACTLY, short segments
+must be computed with the same floating-point operations as the original
+(bit-identical replicas, exact_max_len); long segments use O(1) prefix sums.
